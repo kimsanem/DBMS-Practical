@@ -1,2 +1,1 @@
-# practice sql 
-
+# practice sql script
