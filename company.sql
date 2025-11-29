@@ -42,8 +42,11 @@ insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values
 	(7902, 'FORD', 'ANALYST', 7566, '1981-12-04', 3000, NULL, 20),
 	(7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300, NULL, 10);
 
+
 select*from dept;
 select*from emp;
+
+select * from emp, dept where emp.deptno = dept.deptno;
 
 drop table dept;
 drop table emp;
@@ -99,3 +102,25 @@ select * from emp where mgr is NULL;
 
 select * from emp order by ename;
 
+select * from emp where sal>2000 order by job, ename;
+
+select * from emp where sal>2000 order by job, sal desc, ename;
+
+-- aggregate function
+select count(*) from emp;
+
+select count(comm) from emp;
+
+select sum(sal) from emp where job='manager';
+
+select min(sal) from emp where job="salesman";
+
+select ename, sal from emp where sal=(select min(sal) from emp where job="salesman");
+
+select deptno, count(*) from emp group by deptno;
+
+select job, avg(sal) from emp where job!= 'clerk' group by job order by job desc;
+
+select deptno,count(*) as "total emp", avg(sal) from emp group by deptno having count(*)>5;
+
+select job, sum(sal), max(sal) from emp where deptno=20 group by job having sum(sal)>5000 order by sum(sal);
