@@ -1,6 +1,8 @@
 create database prac1;
 use prac1;
 
+SELECT @@VERSION;
+
 -- create tables
 create table student(
 	rollno char(6),

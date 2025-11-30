@@ -1,43 +1,14 @@
-# practice sql script
+-- test
 
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Aug 24, 2021 at 07:04 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `emp_dept`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `department`
---
+create database kim;
+use kim;
+show tables;
 
 CREATE TABLE `department` (
   `dno` int(3) NOT NULL,
   `dname` varchar(50) DEFAULT NULL,
   `location` varchar(50) DEFAULT 'New Delhi'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `department`
---
+);
 
 INSERT INTO `department` (`dno`, `dname`, `location`) VALUES
 (10, 'Accounting', 'New York'),
@@ -45,13 +16,9 @@ INSERT INTO `department` (`dno`, `dname`, `location`) VALUES
 (30, 'Sales', 'Chicago'),
 (40, 'Operation', 'Boston'),
 (50, 'Purchase', 'New Delhi');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employee`
---
-
+	
+-- complete department table create + insert
+    
 CREATE TABLE `employee` (
   `eno` char(3) NOT NULL,
   `ename` varchar(50) NOT NULL,
@@ -61,11 +28,7 @@ CREATE TABLE `employee` (
   `Dno` int(3) DEFAULT NULL,
   `Commission` decimal(10,2) DEFAULT NULL,
   `Salary` decimal(7,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `employee`
---
+);
 
 INSERT INTO `employee` (`eno`, `ename`, `job_type`, `supervisonENO`, `Hire_date`, `Dno`, `Commission`, `Salary`) VALUES
 ('736', 'Smith', 'Clerk', '790', '1981-12-17', 20, '0.00', '1000.00'),
@@ -82,6 +45,17 @@ INSERT INTO `employee` (`eno`, `ename`, `job_type`, `supervisonENO`, `Hire_date`
 ('790', 'James', 'Clerk', '769', '1981-12-03', 30, '0.00', '950.00'),
 ('792', 'Ford', 'Analyst', '756', '1981-12-03', 20, '0.00', '2600.00'),
 ('793', 'Miller', 'Clerk', '788', '1982-01-23', 40, '0.00', '1300.00');
+
+-- complete create and dumpting for table employee
+
+
+
+
+select * from employee;
+select * from department;
+
+
+
 
 --
 -- Indexes for dumped tables
@@ -110,7 +84,4 @@ ALTER TABLE `employee`
 ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`Dno`) REFERENCES `department` (`dno`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ROLLBACK;
