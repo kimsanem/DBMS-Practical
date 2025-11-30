@@ -1,5 +1,7 @@
 create database company;
 use company;
+show tables;
+select @@version;
 
 create table dept (
 	deptno integer,
@@ -24,7 +26,8 @@ insert into dept(deptno, dname, loc) values
 	(10, 'ACCOUNTING', 'NEW YORK'),
 	(20, 'RESEARCH', 'DALLAS'),
 	(30, 'SALES', 'CHICAGO'),
-	(40, 'OPERATIONS', 'BOSTON');
+	(40, 'OPERATIONS', 'BOSTON'),
+    (50, 'Purchase', 'New Delhi');
 
 insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values
 	(736f9, 'SMITH', 'CLERK', 7902, '1980-12-17', 800, NULL, 20),
