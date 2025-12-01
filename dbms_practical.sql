@@ -1,5 +1,6 @@
 create database prac1;
 use prac1;
+show tables;
 
 SELECT @@VERSION;
 
@@ -145,8 +146,9 @@ select socname from society;
 # 3
 select studentname from student where studentname like 'a%';
 
-# 4
-select * from student where course in ('computer science', 'bsc math');
+# 4 
+select * from student;
+select * from student where course in ('BSc CS', 'BSc Chem');
 
 # 5
 select studentname from student where (rollno like 'x%9' or rollno like 'z%9');

@@ -82,23 +82,27 @@ select ename, job from emp where job='salesman' or job='analyst';
 
 select empno, ename from emp where job!='manager';
 
+-- same output to print of various empno
 select ename, empno from emp where empno=7369 or empno=7521 or empno=7839 or empno=7934;
-
 select ename, empno from emp where empno in(7369,7521,7839,7934);
 
 select * from emp where deptno not in (10,30,40);
 
+-- print salary of range btw 1000 and 2000
 select * from emp where sal>=1000 and sal<=2000;
-
 select * from emp where sal between 1000 and 2000;
 
+-- start with s
 select ename from emp where ename like 's%';
 
+-- second character with i , i.e. King, Miller
 select ename from emp where ename like '_i%';
 
+-- name with 4 characters use four underscores
 select * from emp where ename like '____';
 
 select job from emp;
+-- filter out the duplicated job (only print the distinct name of job, those that duplicate print only once)
 select distinct job from emp;
 
 select * from emp where mgr is NULL;
@@ -118,8 +122,10 @@ select sum(sal) from emp where job='manager';
 
 select min(sal) from emp where job="salesman";
 
+-- **
 select ename, sal from emp where sal=(select min(sal) from emp where job="salesman");
 
+select deptno, count(*) from emp;
 select deptno, count(*) from emp group by deptno;
 
 select job, avg(sal) from emp where job!= 'clerk' group by job order by job desc;
